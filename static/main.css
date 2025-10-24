@@ -28,9 +28,14 @@ html,body{
     justify-content: center;
     align-items: center;
     gap: 20px;
-    /* testing */
-    /* background-color: aqua;
-    opacity: 0.5;
-    height: 500px;
-    width: 400px; */
+    padding-top: 50px;
+}
+.box{
+    width: 400px;
+    height: 75px;
+    background-color: aliceblue;
+    border-radius: 15px;
+    border: 1px solid rgb(142, 141, 141);
+    opacity: 0.9;
+    color: rgb(142, 141, 141);
 }
