@@ -9,16 +9,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const scroller = document.createElement('div');
     scroller.className = 'scroller';
     scrollerContainer.appendChild(scroller);
+
+    let data_ = [];
     
     fetch('./static/data.json')
         .then(response => response.json())
         .then(data => {
             data.forEach(item => {
+                data_.push(item);
                 const box = document.createElement('a');
                 box.className = 'box';
                 box.href = item.Link;
                 box.target = '_blank';
-
                 
                 box.innerHTML = `
                     <div class="image_">
@@ -31,15 +33,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 `;
                 container.appendChild(box);
             });
+            window.addEventListener('resize', windowsResizeHandler);
+            windowsResizeHandler();
+            // updateScroller();
+        })
+        .catch(error => console.error('Error loading data:', error));
+
+    function windowsResizeHandler() {
+        while (document.getElementsByClassName('bottom-spacer').length != 0) {
+            document.getElementsByClassName('bottom-spacer')[0].remove();
+        }
+        if (65*data_.length + 20*(data_.length-1) > container.clientHeight) {
             const bottom = document.createElement('div');
             bottom.className = 'bottom-spacer';
             container.appendChild(bottom);
-            
-            
             updateScroller();
-        })
-        .catch(error => console.error('Error loading data:', error));
-    
+            container.addEventListener('scroll', updateScroller);
+        }else{
+            scrollerContainer.style.display = 'none';
+            container.removeEventListener('scroll', updateScroller);
+        }
+    };
     function updateScroller() {
         const scrollTop = container.scrollTop;
         const scrollHeight = container.scrollHeight;
@@ -68,8 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
             scrollerContainer.style.right = '20px'
         }
     }
-    updateScroller();
+
     
-    container.addEventListener('scroll', updateScroller);
-    window.addEventListener('resize', updateScroller);
+    
 });
