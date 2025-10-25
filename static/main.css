@@ -165,6 +165,7 @@ body {
     width: 315px;
 }
 .bottom-spacer {
-    height: 65px;
-    min-height: 65px;
+    height: 140px;
+    min-height: 140px;
+    /* 原65px 適應ig瀏覽器問題 */
 }
