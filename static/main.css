@@ -34,28 +34,14 @@ html,body{
     height: calc(100vh - 200px);
     overflow-x: hidden;
     overflow-y: auto;
-    /* background-color: aqua; */
-    
+    width: 402px;
 }
 
 .container::-webkit-scrollbar {
-    width: 5px;
+    width: 0;
     height: 0;
 }
 
-.container::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.container::-webkit-scrollbar-thumb {
-    background-color: rgba(142, 141, 141, 0.5);
-    border-radius: 10px;
-    border: 2px solid transparent;
-}
-
-.container::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(142, 141, 141, 0.8);
-}
 
 .box{
     width: 390px;
