@@ -62,6 +62,12 @@ body {
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 15px;
     position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.profile_text::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 
 .profile_name {
@@ -106,13 +112,15 @@ body {
 .container::-webkit-scrollbar {
     width: 0;
     height: 0;
+    display: none;
 }
 
 
 .box {
     width: calc(100vw - 52px);
-    max-width: 390px;
+    max-width: 388px;
     height: 65px;
+    min-height: 65px;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
     border: 1px solid rgb(142, 141, 141);
@@ -128,6 +136,7 @@ body {
 
     padding-top: 5px;
     padding-bottom: 5px;
+    overflow-x: hidden;
 }
 
 .image_ {
@@ -170,4 +179,27 @@ body {
     height: 140px;
     min-height: 140px;
     /* 原65px 適應ig瀏覽器問題 */
+}
+
+.scroller-container {
+    position: absolute;
+    top: 230px;
+    /* right: calc(50vw - 200px); */
+    height: calc(100vh - 280px);
+    width: 6px;
+    background-color: rgba(200, 200, 200, 0.3);
+    border-radius: 3px;
+    z-index: 5;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.scroller{
+    position: absolute;
+    background-color: rgba(100, 100, 100, 0.5);
+    /* right: calc(50vw - 200px + 10px); */
+    width: 6px;
+    /* height: 50px; */
+    border-radius: 3px;
+    z-index: 10;
 }
